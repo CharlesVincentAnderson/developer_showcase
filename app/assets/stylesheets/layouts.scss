@@ -1,0 +1,54 @@
+#notice_wrapper {
+  position: absolute;
+  width: 100%;
+  top: 0;
+//  background-color: rgba(92, 184, 92, 0.75);
+  z-index: 999;
+  .alert, .notice {
+//    padding: 2.5rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+//    color: #FFFFFF;
+    letter-spacing: 1px;
+  }
+}
+
+.nav_container {
+  float: left;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+  opacity: 1;
+  display: block;
+  height: 85px;
+//  background-image: radial-gradient(#bfbfbf, #ffffff, #000099);
+  background-color: #000099;
+//  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji";
+  border-bottom: 3px solid white;
+  color: #e6e6e6;
+}
+
+.nav_links {
+  width: 100%;
+  position: absolute;
+  bottom: 3px;
+}
+
+.login_links {
+  font-weight: 350;
+  font-size: 1.3em;
+  text-align: right;
+  margin-right: 1.5em;
+}
+
+.portfolio_links {
+  font-weight: 400;
+  font-size: 1.95em;
+//  position: relative;
+//  left: 5em;
+}

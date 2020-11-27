@@ -1,0 +1,15 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.page_body {
+  padding: 0px;
+  margin-top: 85px;
+  width: 100%;
+  height: 100vw;
+//  background-image: image-url("farm_background_extralight_2.png");
+//  background-repeat: no-repeat;
+//  background-size: cover;
+  z-index: -1;
+  background-image: linear-gradient(to right, #000000, #d9d9d9);
+  color: white;
+}
