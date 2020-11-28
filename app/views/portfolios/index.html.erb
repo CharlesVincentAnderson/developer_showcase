@@ -1,0 +1,25 @@
+<div class="col-sm-2"></div>
+<div class="container col-sm-8">
+  <h3 class="center-text-h3">Portfolios</h3>
+  <div class="row">
+    <div class="col-sm center text-wrap border tablediv " > <strong>First Name </strong></div>
+    <div class="col-sm center text-wrap border tablediv " > <strong>Last Name </strong></div>
+    <div class="col-sm center text-wrap border tablediv " > <strong>Email </strong></div>
+  </div>
+  <% @portfolios.each do |portfolio| %>
+    <div class="row divRowsPortfolio apple_pagination" data-link="<%=portfolio_path(portfolio)%>">
+      <div class="col-sm border tablediv center">
+        <strong><%= portfolio.first_name %></strong>
+      </div>
+      <div class="col-sm border tablediv center">
+        <strong><%= portfolio.last_name %></strong>
+      </div>
+      <div class="col-sm border tablediv center">
+        <strong><%= portfolio.email %></strong>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-sm tablediv center">
+    <%= will_paginate @portfolios %>
+  </div>
+</div>
