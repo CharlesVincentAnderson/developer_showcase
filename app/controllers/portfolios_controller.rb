@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class PortfoliosController < ApplicationController
 #  before_action :set_location, only: [:show, :edit, :update, :destroy]
 #  before_action :authenticate_user!, except: [:new, :create, :show]
@@ -5,7 +7,7 @@ class PortfoliosController < ApplicationController
   layout 'portfolios_layout'
 
   def index
-    @portfolios = Portfolio.all
+    @portfolios = Portfolio.all.to_ary
     @portfolios = @portfolios.paginate(page: params[:page], :per_page => 10)
   end
 

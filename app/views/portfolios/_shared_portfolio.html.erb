@@ -1,0 +1,29 @@
+<div class="shared_portfolio">
+  <div class="shared_header row">
+    <div class="col-sm-6">
+      <div class="shared_header_name">
+        <%= "#{portfolio.first_name} #{portfolio.last_name}" %>
+      </div>
+      <div class="shared_header_urls">
+        <div><%= portfolio.email %></div>
+        <div><%= portfolio.linkedin %></div>
+        <div><%= portfolio.github %></div>
+      </div>
+    </div>
+    <div class="shared_company_name">
+      <div><%= portfolio.company_name %></div>
+      <% if portfolio.company_email.present? %>
+        <div><%= portfolio.company_email %></div>
+      <% end %>
+      <% if portfolio.company_website.present? %>
+        <div><%= portfolio.company_website %></div>
+      <% end %>
+    </div>
+    <div class="shared_header_links">
+      About Me | Projects | Notable Mention
+    </div>
+  </div>
+  <div class="shared_body">
+  
+  </div>
+</div>
