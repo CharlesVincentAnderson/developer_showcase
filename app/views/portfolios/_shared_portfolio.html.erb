@@ -20,10 +20,13 @@
       <% end %>
     </div>
     <div class="shared_header_links">
-      About Me | Projects | Notable Mention
+      <%= link_to 'About Me', portfolio_path(portfolio, sub_view: "about") , :class => '', :style => 'color:white;' %> |
+      Projects | Notable Mention
     </div>
   </div>
   <div class="shared_body">
-  
+    <% if @sub_view == "about" %>
+      <%= render 'about_me', about_me: portfolio.about_me %>
+    <% end %>
   </div>
 </div>

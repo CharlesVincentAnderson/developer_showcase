@@ -7,7 +7,7 @@
     <div class="col-sm center text-wrap border tablediv" > <strong>Email </strong></div>
   </div>
   <% @portfolios.each do |portfolio| %>
-    <div class="row divRowsPortfolio apple_pagination" data-link="<%=portfolio_path(portfolio)%>">
+    <div class="row divRowsPortfolio apple_pagination" data-link="<%=portfolio_path(portfolio, sub_view: "about")%>">
       <div class="col-sm border center">
         <strong><%= portfolio.first_name %></strong>
       </div>
