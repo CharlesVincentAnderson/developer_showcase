@@ -1,0 +1,25 @@
+// Place all the styles related to the about_mes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.about_me_body {
+  padding: 0px;
+  margin-top: 85px;
+  width: 100%;
+  height: 100vw;
+  z-index: -1;
+  background-color: #000000;
+}
+
+.form-container-about-me {
+  border:0px solid #fff;
+  padding: 10px 10px 10px 10px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  height: 610px;
+  font:  14px sans-serif;
+  -webkit-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
+  box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
+  text-align: center;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Developer Showcase</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if notice %>
+      <div id="notice_wrapper">
+        <p class="notice" style="color:#e6e6e6;"><%= notice %></p>
+      </div>
+    <% elsif alert %>
+      <div id="notice_wrapper">
+        <p class="alert" style="color:#e6e6e6;"><%= alert %></p>
+      </div>
+    <% end %>
+    <div class="nav_container">
+      <%= render 'layouts/navigation' %>
+    </div>
+    <div class="about_me_body">
+      <%= yield %>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        setTimeout(function(){
+            $('#notice_wrapper').fadeOut("slow", function() {
+                $(this).remove();
+            })
+        }, 1500);
+        });
+    </script>
+  </body>
+</html>
+

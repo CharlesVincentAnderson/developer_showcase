@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class PortfoliosController < ApplicationController
 #  before_action :set_location, only: [:show, :edit, :update, :destroy]
 #  before_action :authenticate_user!, except: [:new, :create, :show]
@@ -5,7 +7,7 @@ class PortfoliosController < ApplicationController
   layout 'portfolios_layout'
 
   def index
-    @portfolios = Portfolio.all
+    @portfolios = Portfolio.all.to_ary
     @portfolios = @portfolios.paginate(page: params[:page], :per_page => 10)
   end
 
@@ -15,6 +17,8 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new portfolio_params
+    @portfolio.about_me.build
+    @portfolio.user = current_user
     if @portfolio.save
       redirect_to '/portfolios', notice: "Portfolio added successfully"
     else
@@ -35,8 +39,10 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  # ???should params[:sub_view] go through strong params? -- probably
   def show
-    @portfolio = Portfolio.find params[:id]
+    @sub_view = params[:sub_view]
+    @portfolio = Portfolio.where(id: params[:id]).includes(:about_me)[0]
   end
 
   def destroy

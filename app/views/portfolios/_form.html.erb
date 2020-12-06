@@ -1,0 +1,59 @@
+<div class="container-fluid row">
+  <div class="col-md-3 col-sm-2 col-xs-12 " ></div>
+  <div class="col-md-6 col-sm-6 col-xs-12 border bg-light big-container">
+    <div class= "form-container-portfolio border">
+      <div class=" centerdiv">
+        <h3 class="center-text-h3x">Create Portfolio</h3>
+        <br>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10 login-form-1">
+            <%= form_with model: portfolio do|f| %>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="mt-4">
+                    <%= f.text_field :first_name %>
+                    <small class="form-text text-muted text-left">First Name</small>
+                  </div>
+                  <div class="mt-2">
+                    <%= f.text_field :last_name %>
+                    <small class="form-text text-muted text-left">Last Name</small>
+                  </div>
+                  <div class="mt-2">
+                    <%= f.text_field :email %>
+                    <small class="form-text text-muted text-left">Email</small>
+                  </div>
+                  <div class="mt-2">
+                    <%= f.text_field :linkedin %>
+                    <small class="form-text text-muted text-left">LinkedIn (optional)</small>
+                  </div>
+                  <div class="mt-2">
+                    <%= f.text_field :github %>
+                    <small class="form-text text-muted text-left">Github (optional)</small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="mt-4">
+                    <%= f.text_field :company_name %>
+                    <small class="form-text text-muted text-left">Company Name (optional)</small>
+                  </div>
+                  <div class="mt-2">
+                    <%= f.text_field :company_website %>
+                    <small class="form-text text-muted text-left">Company Website (optional)</small>
+                  </div>
+                  <div class="mt-2">
+                    <%= f.text_field :company_email %>
+                    <small class="form-text text-muted text-left">Company email (optional)</small>
+                  </div>
+                </div>
+              </div>
+              <div class="center">
+                <input type="submit" name="commit" value="Save" class="button" >
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

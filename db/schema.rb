@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_025758) do
+ActiveRecord::Schema.define(version: 2020_12_04_032422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_mes", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "portfolio_id"
+    t.index ["portfolio_id"], name: "index_about_mes_on_portfolio_id"
+  end
 
   create_table "portfolios", force: :cascade do |t|
     t.string "first_name"
@@ -26,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_025758) do
     t.string "company_website"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

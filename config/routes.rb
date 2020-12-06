@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#landing_page'
 
   resources :portfolios
+  resources :about_mes
 end
