@@ -42,7 +42,12 @@ class PortfoliosController < ApplicationController
   # ???should params[:sub_view] go through strong params? -- probably
   def show
     @sub_view = params[:sub_view]
-    @portfolio = Portfolio.where(id: params[:id]).includes(:about_me)[0]
+    @portfolio = Portfolio.where(id: params[:id]).includes(:about_me, :projects)[0]
+    if @sub_view == "about"
+    elsif @sub_view.include? "project"
+      project = @sub_view.split(',')[1].to_i
+      @project = @portfolio.projects[project]
+    end
   end
 
   def destroy

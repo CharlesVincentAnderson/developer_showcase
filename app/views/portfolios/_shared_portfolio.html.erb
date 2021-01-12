@@ -19,14 +19,39 @@
         <div><%= portfolio.company_website %></div>
       <% end %>
     </div>
-    <div class="shared_header_links">
-      <%= link_to 'About Me', portfolio_path(portfolio, sub_view: "about") , :class => '', :style => 'color:white;' %> |
-      Projects | Notable Mention
-    </div>
   </div>
+  <nav class="navbar navbar-expand-lg navbar-light row shared_header_links" style="height:30px;background-color: #e60000;border-bottom: 3px solid white;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" style="position:relative;left:-.8em;">
+        <li class="nav-item active">
+          <a class="nav-link" style="color:white;" href=<%="#{portfolio.id}?sub_view=about"%> >About Me </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:white;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Projects
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color:white;">
+            <% counter = 0 %>
+            <% portfolio.projects.each do |project| %>
+              <% path = 'portfolios/' + "#{portfolio.id}?sub_view=project,#{counter}" %>
+              <a class="dropdown-item" href=<%= "#{portfolio.id}?sub_view=project,#{counter}" %> ><%= "#{project.name}" %></a>
+              <% counter = counter + 1 %>
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/projects/new">Add Project</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:white;" href="#">Notable Mention <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <div class="shared_body">
     <% if @sub_view == "about" %>
       <%= render 'about_me', about_me: portfolio.about_me %>
+    <% elsif @sub_view.include? "project" %>
+      <%= render 'project', project: @project %>
     <% end %>
   </div>
 </div>

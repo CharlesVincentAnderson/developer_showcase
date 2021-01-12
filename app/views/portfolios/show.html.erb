@@ -5,11 +5,23 @@
       <%= render 'shared_portfolio', portfolio: @portfolio %>
     </div>
   </div>
-  <div class="edit_button ml-4">
-    <% if @sub_view == "about" %>
+  <% if @sub_view == "about" %>
+    <div class="edit_button ml-4">
       <div class="button">
         <%= link_to 'Edit', edit_about_me_path(@portfolio.about_me) , :class => '', :style => '' %>
       </div>
+    </div>
+  <% elsif @sub_view.include? "project" %>
+    <div class="project_buttons mt-4 ml-4" >
+      <div class="proj-button">
+        <% proj = @sub_view.split(',')[1].to_i %>
+        <div>
+          <%= link_to 'Edit Project', edit_project_path(@portfolio.projects[proj]), :class => '', :style => '' %>
+        </div>
+        <div class="proj-button2 mt-4">
+          <%= link_to 'Delete Project', project_path(@portfolio.projects[proj]), method: :delete, :class => '', :style => 'color:red;' %>
+        </div>
+      </div> 
     <% end %>
   </div>
 </div>
