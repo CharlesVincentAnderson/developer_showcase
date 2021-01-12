@@ -1,0 +1,46 @@
+<div class="container-fluid row">
+  <div class="col-md-3 col-sm-2 col-xs-12 " ></div>
+  <div class="col-md-6 col-sm-6 col-xs-12 border bg-light big-container">
+    <div class= "form-container-project border">
+      <div class=" centerdiv">
+        <h3 class="center-text-h3x">Edit Project</h3>
+        <br>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10 login-form-1">
+            <%= form_with model: @project do|f| %>
+              <div class="row">
+                <div class="center">
+                  <%= f.text_field :name, :cols => "30" %>
+                  <small class="form-text text-muted">Project Name</small>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="project_role col-sm-6">
+                  <%= f.text_field :role %>
+                  <small class="form-text text-muted center-text">Role on project</small>
+                </div>
+                <div class="project_git col-sm-6">
+                  <%= f.text_field :github %>
+                  <small class="form-text text-muted center-text">Github Repository URL</small>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="mt-4">
+                    <%= f.text_area :description, :cols => "60", :rows => "12" %>
+                    <small class="form-text text-muted text-left">Description</small>
+                  </div>
+                </div>
+              </div>
+              <div class="center">
+                <input type="submit" name="commit" value="Save" class="button" >
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
