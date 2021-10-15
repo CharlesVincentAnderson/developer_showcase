@@ -1,0 +1,20 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.big-container {                                          
+  margin-top: 40px;                                       
+}                                                         
+                                                          
+.form-container-project {                                 
+  border:0px solid #fff;                                  
+  padding: 10px 10px 10px 10px;                           
+  margin-top: 2vh;                                        
+  margin-bottom: 2vh;                                     
+  height: 610px;                                          
+  font:  14px sans-serif;                                 
+  -webkit-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75); 
+  -moz-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);    
+  box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);         
+  text-align: center;                                     
+}

@@ -22,6 +22,11 @@
           <%= link_to 'Delete Project', project_path(@portfolio.projects[proj]), method: :delete, :class => '', :style => 'color:red;' %>
         </div>
       </div> 
-    <% end %>
-  </div>
+    </div>
+    <div class="feature_buttons ml-4">
+      <div class="add_feature_button">
+        <%= link_to 'Add Feature', new_feature_path(project: proj), :class => '', :style => '' %>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :portfolios
   resources :about_mes, only: [:edit, :update]
   resources :projects
+  resources :features
 end
