@@ -8,5 +8,21 @@
   height: 100vw;
   z-index: -1;
   background-image: linear-gradient(to right, #000000, #d9d9d9);
-  color: white;
+//  color: white;
+}
+
+.center {
+  display: flex !important;
+  justify-content: center;
+}
+
+.rainbow-lr {
+  background: linear-gradient(to right, red, orange , yellow, green, cyan, blue, violet) !important;
+  color:transparent !important;
+  background-clip: text !important;
+}
+
+.landing-text {
+  font-size: 9rem !important;
+  font-weight: 600 !important;
 }

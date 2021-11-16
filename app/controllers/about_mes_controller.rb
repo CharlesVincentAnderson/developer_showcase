@@ -7,6 +7,7 @@ class AboutMesController < ApplicationController
 
   def update
     @about_me = AboutMe.find params[:id]
+    @about_me.head_shot.attach(about_me_params[:picture])
     if @about_me.update about_me_params
       redirect_to portfolio_path(current_user.portfolio, sub_view: "about"), notice: "About me updated successfully"
     else
@@ -17,6 +18,6 @@ class AboutMesController < ApplicationController
   private
 
   def about_me_params
-    params.require(:about_me).permit(:description)
+    params.require(:about_me).permit(:description, :head_shot)
   end
 end

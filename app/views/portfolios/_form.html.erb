@@ -47,6 +47,21 @@
                   </div>
                 </div>
               </div>
+              <hr>
+              <div class="row">
+                <div class=col-sm-4>
+                  <%= label_tag :header_color, "Header Color", class: 'text-muted center'%>
+                  <%= f.select :header_color, options_for_select(@colors, f.object.header_color), class: "form-control"%>
+                </div>
+                <div class=col-sm-4>
+                  <%= label_tag :body_color, "Body Color", class: 'text-muted center'%>
+                  <%= f.select :body_color, options_for_select(@colors, f.object.body_color), class: "form-control"%>
+                </div>
+                <div class=col-sm-4>
+                  <%= label_tag :font_color, "Font Color", class: 'text-muted center'%>
+                  <%= f.select :font_color, options_for_select(@colors, f.object.font_color), class: "form-control"%>
+                </div>
+              </div>
               <div class="center">
                 <input type="submit" name="commit" value="Save" class="button" >
               </div>

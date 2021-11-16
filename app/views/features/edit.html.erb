@@ -1,25 +1,32 @@
 <div class="container-fluid row">
   <div class="col-md-3 col-sm-2 col-xs-12 " ></div>
   <div class="col-md-6 col-sm-6 col-xs-12 border bg-light big-container">
-    <div class= "form-container-about-me border">
+    <div class= "form-container-project border">
       <div class=" centerdiv">
-        <h3 class="center-text-h3x">Edit About Me</h3>
+        <h3 class="center-text-h3x">New Feature</h3>
         <br>
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm-10 login-form-1">
-            <%= form_with model: @about_me do|f| %>
-              <div class="center">
-                <%= f.label :head_shot %>
-                <%= f.file_field :head_shot %>
+            <%= form_with model: @feature do|f| %>
+              <div class="row">
+                <div class="center">
+                  <%= f.text_field :name, :cols => "30" %>
+                  <small class="form-text text-muted">Feature Name</small>
+                </div>
               </div>
+              <br>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="mt-4">
-                    <%= f.text_area :description, :cols => "60", :rows => "18" %>
+                    <%= f.text_area :description, :cols => "60", :rows => "12" %>
                     <small class="form-text text-muted text-left">Description</small>
                   </div>
                 </div>
+              </div>
+              <div class="center">
+                <%= f.label :picture %>
+                <%= f.file_field :picture %>
               </div>
               <div class="center">
                 <input type="submit" name="commit" value="Save" class="button" >

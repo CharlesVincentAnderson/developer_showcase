@@ -1,0 +1,19 @@
+// Place all the styles related to the features controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.feature_body {
+  padding: 0px;
+  margin-top: 85px;
+  width: 100%;
+  height: 100vw;
+  z-index: -1;
+  background-color: #000000;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

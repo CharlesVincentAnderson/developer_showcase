@@ -11,9 +11,9 @@ class ProjectsController < ApplicationController
     @project.portfolio_id = current_user.portfolio.id
     portfolio = @project.portfolio
     count = portfolio.projects.length
-#    for i in 0...portfolio.projects.length
-#      count = i if portfolio.projects[i] == @project
-#    end
+    @portfolio = Portfolio.find @project.portfolio_id
+    @portfolio.projects = @portfolio.projects.reverse
+    @portfolio.save
     if @project.save
       redirect_to portfolio_path(current_user.portfolio, sub_view: "project,#{count}"), notice: "Project added successfully"
     else
@@ -47,6 +47,7 @@ class ProjectsController < ApplicationController
       redirect_to portfolio_path(current_user.portfolio, sub_view: "about"), notice: "Project could not be deleted"
     end
   end
+
   private
 
   def project_params

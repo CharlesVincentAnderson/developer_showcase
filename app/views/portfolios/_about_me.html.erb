@@ -1,3 +1,10 @@
-<div class="about_me_body mt-2">
-  <%= about_me.description %>
+<div class="about_me_body mt-2" style="background-color: <%= about_me.portfolio.body_color %>;">
+  <% if about_me.head_shot.present? %>
+    <% if action_name == "show_shared" %>
+      <div class="center about-me-head-shot pr-0" style='background-image: url("<%= rails_blob_url(about_me.head_shot) %>");height: 550px !important;'></div>
+    <% else %>
+      <div class="center about-me-head-shot pr-0" style='background-image: url("<%= rails_blob_url(about_me.head_shot) %>")'></div>
+    <% end %>
+  <% end %>
+  <div class="center"><%= about_me.description %></div>
 </div>

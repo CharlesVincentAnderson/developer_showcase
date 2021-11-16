@@ -1,5 +1,9 @@
 <div class="container-fluid container-height row">
-  <div class="col-md-3 col-sm-2 col-xs-12 " ></div>
+  <div class="col-md-3 col-sm-2 col-xs-12 " >
+    <div class="portfolio-button edit-portfolio-button">
+      <%= link_to 'Edit Portfolio', edit_portfolio_path(@portfolio) , :class => '', :style => '' %>
+    </div>
+  </div>
   <div class="col-md-6 col-sm-6 col-xs-12 border bg-light big-container">
     <div class= "form-container-portfolio border">
       <%= render 'shared_portfolio', portfolio: @portfolio %>
@@ -21,7 +25,10 @@
         <div class="proj-button2 mt-4">
           <%= link_to 'Delete Project', project_path(@portfolio.projects[proj]), method: :delete, :class => '', :style => 'color:red;' %>
         </div>
+        <div class="add_feature_button">
+          <%= link_to 'Add Feature', new_feature_path("feature" => {project_id: @project.id}, sub_view: proj), :class => '', :style => '' %>
+        </div>
       </div> 
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
