@@ -1,5 +1,5 @@
-<div class="shared_portfolio">
-  <div class="shared_header row">
+<div class="shared_portfolio" style="color: <%= portfolio.font_color %>;" >
+  <div class="shared_header row" style="background-color: <%= portfolio.header_color %>" >
     <div class="col-sm-6">
       <div class="shared_header_name">
         <%= "#{portfolio.first_name} #{portfolio.last_name}" %>
@@ -20,17 +20,17 @@
       <% end %>
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light row shared_header_links" style="height:30px;background-color: #e60000;border-bottom: 3px solid white;">
+  <nav class="navbar navbar-expand-lg navbar-light row shared_header_links" style="height:30px;background-color: <%= portfolio.header_color %>;border-bottom: 3px solid white;">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto" style="position:relative;left:-.8em;">
         <li class="nav-item active">
-          <a class="nav-link" style="color:white;" href=<%="#{portfolio.id}?sub_view=about"%> >About Me </a>
+          <a class="nav-link" style="color: <%= portfolio.font_color %>;" href=<%="#{portfolio.id}?sub_view=about"%> >About Me </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" style="color:white;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" style="color: <%= portfolio.font_color %>;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Projects
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color:white;">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: <%= portfolio.font_color %>;">
             <% counter = 0 %>
             <% portfolio.projects.each do |project| %>
               <% path = 'portfolios/' + "#{portfolio.id}?sub_view=project,#{counter}" %>
@@ -42,16 +42,24 @@
           </div>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" style="color:white;" href="#">Notable Mention <span class="sr-only">(current)</span></a>
+          <a class="nav-link" style="color: <%= portfolio.font_color %>;" href="#">Notable Mention <span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="shared_body">
+  <% if action_name == "show_shared" %>
+    <div class="shared_body" style="background-color: <%= portfolio.body_color %>;height: 100% !important;">
+  <% else %>
+    <div class="shared_body" style="background-color: <%= portfolio.body_color %>;">
+  <% end %>
     <% if @sub_view == "about" %>
       <%= render 'about_me', about_me: portfolio.about_me %>
     <% elsif @sub_view.include? "project" %>
-      <%= render 'project', project: @project %>
+      <% if @project.present? %>
+        <%= render 'project', project: @project %>
+      <% else %>
+        <%= render 'project', project: (Project.find params[:sub_view].split(',')[1].to_i) %>
+      <% end %>
     <% end %>
   </div>
 </div>

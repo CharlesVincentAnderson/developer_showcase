@@ -7,11 +7,13 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new project_params
-    @project.feature.build
     count = 0
     @project.portfolio_id = current_user.portfolio.id
     portfolio = @project.portfolio
     count = portfolio.projects.length
+    @portfolio = Portfolio.find @project.portfolio_id
+    @portfolio.projects = @portfolio.projects.reverse
+    @portfolio.save
     if @project.save
       redirect_to portfolio_path(current_user.portfolio, sub_view: "project,#{count}"), notice: "Project added successfully"
     else

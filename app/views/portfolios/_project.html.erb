@@ -1,4 +1,4 @@
-<div class="project_body mt-2">
+<div class="project_body mt-2" style="background-color: <%= project.portfolio.body_color %>;" >
   <h2><%= project.name %></h2>
   <div class="row mt-4">
     <div class="project_role col-sm-6">
@@ -7,6 +7,23 @@
     <div class="project_github col-sm-6">
       <h5>github: <%=project.github%></h5>
     </div>
-  </div>
+  </div>  
   <h4>Description: <%= project.description %>
+  <% project.features.each do |feature| %>
+    <hr>
+    <div class="center">
+      <h5> Feature Name: <%= feature.name %>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <% if feature.picture.present? %>
+          <div class="feature-picture pr-0" style="background-image: url('<%= rails_blob_url(feature.picture) %>')"></div>
+          <%#= image_tag feature.picture %>
+        <% end %>
+      </div>
+      <div class="col-sm-8 feature-description pl-0">
+        <h5> Description: <%= feature.description %>
+      </div>
+    </div>
+  <% end %>
 </div>

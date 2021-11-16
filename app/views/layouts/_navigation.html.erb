@@ -14,6 +14,9 @@
       <div class="portfolio_links">
         <%= link_to 'Create Portfolio', new_portfolio_path, :class => '', :style => 'color:white;' %> |
         <%= link_to 'Search Portfolios', portfolios_path, :class => '', :style => 'color:white;' %>
+        <% if current_user&.portfolio.present? %>
+          | <%= link_to 'Shared Portfolio', show_shared_portfolio_path(current_user.portfolio, sub_view: 'about'), :class => '', :style => 'color:white;' %>
+        <% end %>
       </div>
     </div>
   </div>
